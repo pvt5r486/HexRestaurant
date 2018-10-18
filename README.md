@@ -1,2 +1,5 @@
 # HexRestautant
-運用技術 - JQuery、HTML5、CSS3、RWD
+JQuery、多頁RWD
+https://pvt5r486.github.io/HexRestaurant/index.html
+
+
