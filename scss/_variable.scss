@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/*****網頁全域預設 設定*****/
+$webfontsize:16px;
+$webfontfamily-orderform:PingFangTC-Light;
+$webfontfamily-btn:PingFangTC-Regular; 
+$webfontfamily-slogan:'Noto Sans TC', sans-serif;
+$webfontfamily-price:'Roboto', sans-serif;
+
+/*****背景圖*****/
+//六角西餐廳LOGO 
+$bg-image-logo:url(../images/logo_w.svg);
+//六角西餐廳LOGO2 footer
+$bg-image-logo-footer:url(../images/logo_l.svg);
+//index頁 header背景圖
+$bg-image-index:url(../images/header_desktop.png);
+//320px 時 header背景圖
+$bg-image-index-sm:url(../images/header_mobile.png);
+//主廚照片
+$chef_pic:url(../images/main_chef_brown.png);
+
+//產品背景圖
+$bg-hamburger:url(../images/product_1.png);
+$bg-Sausage:url(../images/product_2.png);
+$bg-hamBrothers:url(../images/product_3.png);
+$bg-package:url(../images/product_4.png);
+
+
+/*****字體大小*****/
+//登入頁SLOGAN
+$login-slogan-font-size:$webfontsize*3;
+$login-slogan-sec-font-size:$webfontsize*1.25;
+//宣傳SLOGAN
+$slogan-title-font-size:$webfontsize*2.25;
+//區塊title字體大小
+$title-font-size:$webfontsize*1.5;
+//特色區字體
+$feature-slogan-font-size:$webfontsize*1.25;
+$feature-title-font-size:$webfontsize*1.125;
+//主廚介紹標題
+$chef-title-font-size:$webfontsize*1.25;
+//表單title字體大小
+$form_title-font-size:$webfontsize*0.875;
+//登入表單TITLE
+$login-title-font-size:$webfontsize*1.125;
+//購物車aside選單 title
+$shop-aside-title-font-size:$webfontsize*1.25;
+//產品標題文字大小
+$prod_title_font-size:$webfontsize*1.25;
+//產品標題文字大小 英文
+$prod_Etitle_font-size:$webfontsize*0.75;
+//產品價格
+$prod-price-font-size:$webfontsize*1.25;
+
+
+/*****字體顏色*****/
+//選單字體顏色
+$menu-font-color:white;
+//宣傳SLOGAN
+$slogan-font-color:white;
+//網頁主要文字顏色
+$main-font-color:#3D1101;
+//主廚介紹字體顏色
+$chef-font-color:#efe9e7;
+
+
+/*****背景色*****/
+//網頁開頭 選單背景色
+$menubar-bg-color:rgba(0,0,0,0.75);
+//網頁主要背景色
+$main-bgcolor:#efe9e7;
+//主廚專區背景色
+$chef_bg:#3D1101;
+//表單區背景色
+$form_bg:#f6f4f3;

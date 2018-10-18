@@ -1,0 +1,203 @@
+/*清除浮動*/
+@mixin clearfix{
+    content:'';
+    display:table;
+    clear:both;
+}
+
+/*圖片取代文字*/
+@mixin hidden_text{
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*圖片置中且不重複*/
+@mixin bg_center_norepeat{
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/*靠哪 w幾 */
+@mixin floatAndwidth($float_position,$width) {
+    float: $float_position;
+    width: $width;
+}
+
+/*傳入一組字體顏色使其hover時變暗10%*/
+@mixin color-hover-feedback($color) {
+    transition: all 0.3s;  
+    color: $color;
+    &:hover{
+        color: darken($color,10%);
+    }
+}
+
+/*傳入一組框線顏色使其hover,focus時外框限改變**/
+@mixin border-hover-feedback($border-color,$border-width,$border-style) {
+    &:hover,&:focus{
+        border: $border-color $border-width $border-style;
+        outline: none;
+    }
+}
+
+/*傳入一組背景及字體顏色 使其hover時維持該背景、文字色*/
+@mixin bgfcolor-hover-feedback($bgcolor,$color) {   
+    cursor: pointer;
+    transition: all 0.3s;    
+        &:hover{
+            background-color: $bgcolor;   
+            a{
+                color: $color;
+            } 
+        } 
+}
+
+
+@mixin boxshadow {
+    transition: all .3s;
+    box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16);
+    &:hover{
+        box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.32);
+    }
+}
+
+@mixin textbox_default{
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: inset 0px 1px 0px 0px #ECECEC;
+    border-radius: 3px;
+    width: 100%;
+
+    //如果需要icon的話
+    &.mail_icon{
+        background-image: url(../images/mail_icon.png);
+    }
+    &.lock_icon{
+        background-image: url(../images/lock_icon.png);
+    }
+}
+
+
+
+/*按鈕定義*/
+.btn{
+    font-family: $webfontfamily-btn;
+    font-size: $webfontsize*0.875;
+    border-radius: 3px;
+    padding:6px 20px 6px 20px;
+    border: 0px solid black;
+    cursor: pointer;
+    outline: none;
+    &.btn-gray{
+        background:#a09f9e;   
+        color: #FFFFFF;
+        &:hover{
+            background: darken(#a09f9e,10%);
+        }
+        &:active{
+            background: darken(#a09f9e,20%);
+        }
+    }
+    &.btn-orange{
+        background: #F56C23;
+        color: #FFFFFF;
+        &:hover{
+            background: darken(#F56C23,10%);
+        }
+        &:active{
+            background: darken(#F56C23,20%);
+        }
+    }
+    &.btn-outline-orange{
+        background: transparent;
+        color: #FF5E45;
+        border: 2px solid #FF5E45;
+        transition: all .3s;
+        &:hover{
+            color:#FFFFFF;
+            background:#FF5E45;
+        }
+        &:active{
+            color:darken(#FFFFFF,10%);
+            background: darken(#FF5E45,10%);
+        }
+    }
+}
+
+
+
+
+//緞帶
+$brand-hexgreen:#00CC99;
+
+//字體顏色 . 主題色 . 位置
+@mixin ribbon ($color, $bgcolor, $position) {
+  > small {  
+    position: absolute;
+    display: block;
+    width: 100%;
+    padding: 8px 16px 8px 16px;
+    text-align: center;
+    text-shadow: 0 2px 0 darken($bgcolor, 15%);
+    color: $color;
+    background-color: $bgcolor;
+    
+    /*建立小陰影 基礎值*/
+    &:before,&:after {
+      content: "";
+      position: absolute;    
+    }
+ 
+    //判斷位置,如果是右上緞帶
+    @if ($position == top-right) {
+      transform:rotate(45deg);
+      box-shadow:0 3px 6px -3px rgba(#000, .5);
+      top: 17px;
+      left: 28px;
+      
+      /*補上小陰影設定值*/
+      &:before{ 
+        bottom: -6px;
+        left:0px;
+        border-top: 3px solid darken($bgcolor, 20%);
+        border-left: 3px solid darken($bgcolor, 20%);
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+      }
+      &:after{ 
+        bottom:-6px;
+        right: 0px; 
+        border-top: 3px solid darken($bgcolor, 20%);
+        border-left: 3px solid transparent;
+        border-right: 3px solid darken($bgcolor, 20%);
+        border-bottom: 3px solid transparent;
+        }
+
+    }    
+    //左上左下右下以此類推
+  }
+}
+
+// base
+.ribbon {
+  position: absolute;
+  z-index: 100;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  
+  //決定緞帶顯示位置後,根據樣式決定顏色
+  &.top-right {
+    top: -4.3px;
+    right: -4.5px;  
+    &.ribbon-default {
+      @include ribbon(#000, #f4f4f4, top-right);
+    }   
+    &.ribbon-hexgreen {
+      @include ribbon(#fff, $brand-hexgreen, top-right);
+    }
+  } 
+  //左上左下右下以此類推
+}
+

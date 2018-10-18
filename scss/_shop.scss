@@ -1,0 +1,220 @@
+.content::after{
+    @include clearfix;
+}
+
+.aside_menu{
+    color: $main-font-color;
+    line-height: 32px;
+    margin-right: 20px;
+    @include floatAndwidth(left,220px);
+    li:first-child{
+        padding-left: 8px;
+        padding-bottom: 16px;
+        font-size: $shop-aside-title-font-size;
+        i{
+            margin-right: 15px;
+        }
+    }
+    li:not(:first-child){
+        border-bottom: 1px solid $main-font-color;
+        a{
+            color: $main-font-color;
+            padding-left: 8px;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+        &.active{
+            background-color: #3D1101;
+            a{
+                color: #ffffff;
+            }
+        }
+        @include bgfcolor-hover-feedback(#3D1101,#ffffff);         
+    }
+    @media (max-width: 576px) {
+        width: 100%;
+        float: none;
+        margin-bottom: 23px;
+    }
+}
+
+
+.toolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+    .searchbar{
+        position: relative;
+        width: 460px;
+        @media (max-width: 960px) {
+            width: 100%;
+        }
+        input[type="text"]{
+            width: 100%;
+            padding:8px 40px 8px 10px;
+            border: 2px solid $main-font-color;
+            outline: none;
+        }
+        .search_btn{
+            width: 36px;
+            height: 32px;
+            background-color: $main-font-color;
+            border:0px solid black;
+            color:#ffffff;
+            font-size: $webfontsize;
+            position: absolute;
+            right: 0px;
+            top:2px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s;
+            &:hover{
+                background: darken($main-font-color,5%);
+                font-size: $webfontsize*1.15;
+            }
+         
+        }
+    }
+    .go_buy{
+        display: flex;
+        align-items: center;
+        color:$main-font-color;
+        span{
+            display: block;
+            padding-right: 12px;
+            border-right: 1px solid $main-font-color;
+        }
+        a{
+            color:$main-font-color;
+            display: block;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            @include color-hover-feedback($main-font-color);
+            &:after{
+                content: "1";
+                color: #ffffff;
+                font-size: 12px;
+                text-align: center;
+                width: 16px;
+                height: 16px;
+                background: #FF5E45;
+                border: 1px solid #EFE9E7;
+                border-radius: 50%;
+                position: absolute;
+                top:-2px;
+                right: 10px;
+            }
+        }
+        @media (max-width: 960px) {
+            margin-top: 15px;
+            a{
+                padding-right: 0px;
+            }
+        }
+    }
+    @media (max-width: 960px) {
+       justify-content: flex-end;
+    }
+}
+
+.prod_menu{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    li{
+        width: 220px;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        @include boxshadow;
+        @media (max-width: 768px) {
+            width:100%;
+        }
+        .prodimg{
+            height: 120px;
+            @include bg_center_norepeat;
+            background-size: cover;
+            position: relative;
+            &.prod_ham{
+                background-image: $bg-hamburger;
+            }
+            &.prod_sau{
+                background-image: $bg-Sausage;
+            }
+            &.prod_hamB{
+                background-image: $bg-hamBrothers;
+            }
+            &.prod_package{
+                background-image: $bg-package;
+            }
+        }
+        .mark{
+            position: absolute;
+            top:9px;
+            left: 9px;
+            color:white;
+            font-size: $webfontsize*1.5;
+            cursor: pointer;
+            &:hover{
+                color:darken(white, 10%);
+            }
+            &.active{
+                color:yellow;
+            }
+        }
+
+        .ribbon small{
+            font-size: 14px;
+            font-family: $webfontfamily-slogan;
+        }
+
+        .prodinfo{
+            color: $main-font-color;
+            padding: 10px;
+            h3{
+                font-size: $prod_title_font-size;
+                span{
+                    font-size:$prod_Etitle_font-size;
+                    
+                }
+            }
+            .hr{
+                margin: 0px auto;
+                margin-top: 8px;
+                margin-bottom: 20px;
+                display: block;
+                width: 91px;
+                height: 1px;
+                background-color: $main-font-color;               
+            }
+            h4{
+                font-family: $webfontfamily-price;
+                font-size: $prod-price-font-size;
+                margin-bottom: 16px;
+                .price{                  
+                    font-style: italic;
+                    font-weight: bolder;
+                }
+            }
+
+        }
+        .add_cart{
+            width: 100%;
+            font-family: Microsoft JhengHei, sans-serif;
+            i{
+                margin-right: 9px;
+            }
+        }
+
+        &:hover{
+            //#efe9e7
+            background-color: lighten(#efe9e7,10%);
+        }
+    }
+}
+
